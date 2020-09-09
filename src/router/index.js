@@ -1,26 +1,68 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import ProductPreview from '@/components/MarawanComponents/ProductPreview.vue'
+import SellerRegistration from '@/components/MarawanComponents/SellerRegistration.vue'
+import Cart from '@/components/SadekComponents/Cart.vue'
+import Shop from '@/components/SadekComponents/Shop.vue'
+import AddProduct from '@/components/ShemyComponents/AddProduct.vue'
+import HomePage from '@/components/ShemyComponents/HomePage.vue'
+import Login from '@/components/ShemyComponents/Login.vue'
+import SellerDashboard from '@/components/ShemyComponents/SellerDashboard.vue'
+import SignUp from '@/components/ShemyComponents/SignUp.vue'
+
 
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'HomePage',
+    component: HomePage
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/Products/:id',
+    name: 'ProductPreview',
+    component: ProductPreview
+  },
+  {
+    path: '/SellerRegistration',
+    name: 'SellerRegistration',
+    component: SellerRegistration
+  },
+  {
+    path: '/Cart',
+    name: 'ShoppingCart',
+    component: Cart
+  },
+  {
+    path: '/Shop',
+    name: 'Shop',
+    component: Shop
+  },
+  {
+    path: '/AddProduct',
+    name: 'AddProduct',
+    component: AddProduct
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/SignUp',
+    name: 'SignUp',
+    component: SignUp
+  },
+  {
+    path: '/SellerDashboard',
+    name: 'SellerDashboard',
+    component: SellerDashboard
+  },
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

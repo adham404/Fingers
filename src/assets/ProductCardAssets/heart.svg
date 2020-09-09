@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.384" height="29.949" viewBox="0 0 31.384 29.949">
+  <defs>
+    <style>.a{fill:#fff;stroke:#000;stroke-width:3px;}</style>
+    <script> <![CDATA[
+  window.addEventListener('DOMContentLoaded', () => {
+    function getColor () {
+      const R = Math.round(Math.random() * 255).toString(16).padStart(2,'0')
+      const G = Math.round(Math.random() * 255).toString(16).padStart(2,'0')
+      const B = Math.round(Math.random() * 255).toString(16).padStart(2,'0')
+      return `#${R}${G}${B}`
+    }
+
+    document.querySelector('.a').addEventListener('click', (e) => {
+      e.target.style.fill = getColor()
+    })
+  })
+  ]]>
+  </script>
+
+  </defs>
+<path class="a" d="M24.117,3.938h-.068A7.812,7.812,0,0,0,17.567,7.4a7.812,7.812,0,0,0-6.482-3.46h-.068a7.618,7.618,0,0,0-7.642,7.519,15.943,15.943,0,0,0,3.261,8.83c4.107,5.476,10.93,10.267,10.93,10.267S24.39,25.763,28.5,20.287a15.943,15.943,0,0,0,3.261-8.83A7.618,7.618,0,0,0,24.117,3.938Z" transform="translate(-1.875 -2.438)"/>
+</svg>
