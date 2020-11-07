@@ -1,14 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ProductPreview from '@/components/MarawanComponents/ProductPreview.vue'
-import SellerRegistration from '@/components/MarawanComponents/SellerRegistration.vue'
-import Cart from '@/components/SadekComponents/Cart.vue'
-import Shop from '@/components/SadekComponents/Shop.vue'
-import AddProduct from '@/components/ShemyComponents/AddProduct.vue'
-import HomePage from '@/components/ShemyComponents/HomePage.vue'
-import Login from '@/components/ShemyComponents/Login.vue'
-import SellerDashboard from '@/components/ShemyComponents/SellerDashboard.vue'
-import SignUp from '@/components/ShemyComponents/SignUp.vue'
+import ProductPreviewDesktop from '@/DesktopComponents/MarawanComponents/ProductPreview.vue'
+import ProductPreviewMobile from '@/MobileComponents/MarawanComponents/ProductPreview.vue'
+import SellerRegistrationDesktop from '@/DesktopComponents/MarawanComponents/SellerRegistration.vue'
+import SellerRegistrationMobile from '@/MobileComponents/MarawanComponents/SellerRegistration.vue'
+import CartDesktop from '@/DesktopComponents/SadekComponents/Cart.vue'
+import CartMobile from '@/MobileComponents/SadekComponents/Cart.vue'
+import ShopDesktop from '@/DesktopComponents/SadekComponents/Shop.vue'
+import ShopMobile from '@/MobileComponents/SadekComponents/Shop.vue'
+import AddProductDesktop from '@/DesktopComponents/ShemyComponents/AddProduct.vue'
+import AddProductMobile from '@/MobileComponents/ShemyComponents/AddProduct.vue'
+import HomePageDesktop from '@/DesktopComponents/ShemyComponents/HomePage.vue'
+import HomePageMobile from '@/MobileComponents/ShemyComponents/HomePage.vue'
+import LoginDesktop from '@/DesktopComponents/ShemyComponents/Login.vue'
+import LoginMobile from '@/MobileComponents/ShemyComponents/Login.vue'
+import SellerDashboardDesktop from '@/DesktopComponents/ShemyComponents/SellerDashboard.vue'
+import SellerDashboardMobile from '@/MobileComponents/ShemyComponents/SellerDashboard.vue'
+import SignUpDesktop from '@/DesktopComponents/ShemyComponents/SignUp.vue'
+import SignUpMobile from '@/MobileComponents/ShemyComponents/SignUp.vue'
+import SellerStoreDesktop from '@/DesktopComponents/ShemyComponents/SellerStore.vue'
+import SellerStoreMobile from '@/MobileComponents/ShemyComponents/SellerStore.vue'
+import CaptainOrdersDesktop from '@/DesktopComponents/ShemyComponents/CaptainOrders.vue'
+import CaptainOrdersMobile from '@/MobileComponents/ShemyComponents/CaptainOrders.vue'
+import ShopOrdersDesktop from '@/DesktopComponents/ShemyComponents/ShopOrders.vue'
+import ShopOrdersMobile from '@/MobileComponents/ShemyComponents/ShopOrders.vue'
+import TextSellerDesktop from '@/DesktopComponents/ShemyComponents/TextSeller.vue'
+import TextSellerMobile from '@/MobileComponents/ShemyComponents/TextSeller.vue'
+import ChatListDesktop from '@/DesktopComponents/ShemyComponents/ChatList.vue'
+import ChatListMobile from '@/MobileComponents/ShemyComponents/ChatList.vue'
+
 
 
 Vue.use(VueRouter)
@@ -17,48 +37,125 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'HomePage',
-    component: HomePage
+    components: {
+      Desktop: HomePageDesktop,
+      Mobile: HomePageMobile
+    }
   },
   {
     path: '/Products/:id',
     name: 'ProductPreview',
-    component: ProductPreview
+    components: {
+      Desktop: ProductPreviewDesktop,
+      Mobile: ProductPreviewMobile
+    }
   },
   {
     path: '/SellerRegistration',
     name: 'SellerRegistration',
-    component: SellerRegistration
+    components: {
+      Desktop: SellerRegistrationDesktop,
+      Mobile: SellerRegistrationMobile
+    }
   },
   {
     path: '/Cart',
     name: 'ShoppingCart',
-    component: Cart
+    components: {
+      Desktop: CartDesktop,
+      Mobile: CartMobile
+    }
   },
   {
     path: '/Shop',
     name: 'Shop',
-    component: Shop
+    components: {
+      Desktop: ShopDesktop,
+      Mobile: ShopMobile
+    }
   },
   {
     path: '/AddProduct',
     name: 'AddProduct',
-    component: AddProduct
+    components: {
+      Desktop: AddProductDesktop,
+      Mobile: AddProductMobile
+    }
   },
   {
     path: '/Login',
     name: 'Login',
-    component: Login
+    components: {
+      Desktop: LoginDesktop,
+      Mobile: LoginMobile
+    }
   },
   {
     path: '/SignUp',
     name: 'SignUp',
-    component: SignUp
+    components: {
+      Desktop: SignUpDesktop,
+      Mobile: SignUpMobile
+    }
   },
   {
     path: '/SellerDashboard',
     name: 'SellerDashboard',
-    component: SellerDashboard
+    components: {
+      Desktop: SellerDashboardDesktop,
+      Mobile: SellerDashboardMobile
+    },
   },
+    {
+      path: '/SellerStore',
+      name: 'SellerStore',
+      components: {
+        Desktop: SellerStoreDesktop,
+        Mobile: SellerStoreMobile
+      },
+    },
+      {
+        path: '/SellerStore',
+        name: 'SellerStore',
+        components: {
+          Desktop: SellerStoreDesktop,
+          Mobile: SellerStoreMobile
+        }
+      },
+      {
+        path: '/CaptainOrders',
+        name: 'CaptainOrders',
+        components: {
+          Desktop: CaptainOrdersDesktop,
+          Mobile: CaptainOrdersMobile
+        }
+      },
+      {
+        path: '/ShopOrders',
+        name: 'ShopOrders',
+        components: {
+          Desktop: ShopOrdersDesktop,
+          Mobile: ShopOrdersMobile
+        }
+      },
+      {
+        path: '/TextSeller',
+        name: 'TextSeller',
+        components: {
+          Desktop: TextSellerDesktop,
+          Mobile: TextSellerMobile
+        }
+      },
+      {
+        path: '/ChatList',
+        name: 'ChatList',
+        components: {
+          Desktop: ChatListDesktop,
+          Mobile: ChatListMobile
+        }
+      }
+
+
 ]
 
 const router = new VueRouter({
