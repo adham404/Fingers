@@ -2,14 +2,15 @@
   <!-- note to next developer size of component can be reduced by 10% -->
   <div class="Navigation">
     <div class="GeneralNavigation">
-        <router-link :to="{ name: 'Homepage', params: {} }"><img src="@/assets/HeaderAssets/Asset 1.svg" alt="Logo" id="Logo"></router-link>
+        <router-link to="/"><img src="@/assets/HeaderAssets/Asset 1.svg" alt="Logo" id="Logo"></router-link>
         <div id="searchEngine">
           <!-- search engine is still going to be added -->
           <input type="text" name="" value="" placeholder="">
           <img src="@/assets/HeaderAssets/search.svg" alt="" id="icon" style="margin-left:5px">
           <div class="Registration">
-            <h4>Login</h4>
-            <h4 style="border-left: solid 0.2vw grey">SignUp</h4>
+            <h4 v-if="!UserIn" @click="Login">Login</h4>
+            <h4 v-if="!UserIn" @click="SignUp" style="border-left: solid 0.2vw grey">SignUp</h4>
+            <h4 v-if="UserIn" @click="SignOut">Sign out</h4>
           </div>
         </div>
         <div class="icons">
@@ -23,13 +24,13 @@
     </div>
     <div class="CategoriesNavigation">
       <!-- when each of these headers are clicked the user is redirected to the General Store which will show product related to the Keyword he clicked on -->
-      <h3>Accessories</h3>
-      <h3>Handbags</h3>
-      <h3>Home Decor</h3>
-      <h3>Crochet</h3>
-      <h3>Art&Paintings</h3>
-      <h3>Gifts</h3>
-      <h3>Collectibles</h3>
+      <h3 @click="GoToShop(1)">Accessories</h3>
+      <h3 @click="GoToShop(2)">Handbags</h3>
+      <h3 @click="GoToShop(3)">Home Decor</h3>
+      <h3 @click="GoToShop(4)">Crochet</h3>
+      <h3 @click="GoToShop(5)">Art&Paintings</h3>
+      <h3 @click="GoToShop(6)">Gifts</h3>
+      <h3 @click="GoToShop(7)">Collectibles</h3>
     </div>
   </div>
 </template>
@@ -37,8 +38,86 @@
 
 
 <script>
+import {EventBus} from "../../main"
+import firebase from "firebase"
 export default {
+  data:function()
+  {
+    return{
+      UserIn: false
+    }
+  },
   components:{
+  },
+  async mounted()
+  {
+    const auth = firebase.auth()
+    let self = this
+    await auth.onAuthStateChanged((user) => {
+      if(user)
+      {
+        self.UserIn = true
+      }
+      else
+      {
+        self.UserIn = false
+      }
+    })
+  },
+  methods:{
+    Login()
+    {
+      this.$router.push('/Login')
+    },
+    SignOut()
+    {
+      const auth = firebase.auth()
+      auth.signOut();
+      alert("Signed out!")
+      self.UserIn = false
+    },
+    SignUp()
+    {
+      this.$router.push('/SignUp')
+    },
+    GoToShop(Flag)
+    {
+      switch(Flag)
+      {
+        case 1:
+          this.$router.push('/Shop')
+          EventBus.$emit("GoToShop","Acc")
+          console.log("Heeeyo")
+          break;
+        case 2:
+          this.$router.push('/Shop')
+          EventBus.$emit("GoToShop","Handbags")
+          break;
+        case 3:
+          this.$router.push('/Shop')
+          EventBus.$emit("GoToShop","Decor")
+          break;
+        case 4:
+          this.$router.push('/Shop')
+          EventBus.$emit("GoToShop","Crochet")
+          break;
+        case 5:
+          this.$router.push('/Shop')
+          EventBus.$emit("GoToShop","Art")
+          break;
+        case 6:
+          this.$router.push('/Shop')
+          EventBus.$emit("GoToShop","Gifts")
+          break;
+        case 7:
+          this.$router.push('/Shop')
+          EventBus.$emit("GoToShop","Collec")
+          break;
+        default:
+          console.log("Invalid input")
+}
+
+    }
   }
 }
 </script>

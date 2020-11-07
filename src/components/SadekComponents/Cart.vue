@@ -1,15 +1,15 @@
 <template>
-    <div>
-            <h1>Hello</h1>
-    </div>
+  <div>
+      this cart contains alot of things
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+
+}
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>

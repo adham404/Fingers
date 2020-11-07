@@ -9,7 +9,8 @@ import HomePage from '@/components/ShemyComponents/HomePage.vue'
 import Login from '@/components/ShemyComponents/Login.vue'
 import SellerDashboard from '@/components/ShemyComponents/SellerDashboard.vue'
 import SignUp from '@/components/ShemyComponents/SignUp.vue'
-
+import SheemyTestingPage from '@/components/ShemyComponents/SheemyTestingPage'
+import SellerStore from '@/components/ShemyComponents/SellerStore.vue'
 
 Vue.use(VueRouter)
 
@@ -20,9 +21,20 @@ Vue.use(VueRouter)
     component: HomePage
   },
   {
+    path: '/SellerStore',
+    name: 'SellerStore',
+    component: SellerStore
+  },
+  {
+    path: '/SheemyTestingPage',
+    name: 'SheemyTestingPage',
+    component: SheemyTestingPage
+  },
+  {
     path: '/Products/:id',
     name: 'ProductPreview',
-    component: ProductPreview
+    component: ProductPreview,
+    props: true
   },
   {
     path: '/SellerRegistration',
