@@ -1,11 +1,11 @@
 <template>
     <div class="Horizontal scroll">
         <div v-for="n in 3" :key="n" class="Container Shadow">
-        <!-- <div class="Header">
+        <div class="Header">
             <img src="@/assets/ProductPic.jpg" alt="">
             <p>CherryNina giftshop</p>
         </div>
-        <div class="BlockV">
+        <div class="BlzockV">
             <div class="Item" v-for="n in 5" :key = "n">
                 <p>Product name</p>
                 <p>Price</p>
@@ -21,7 +21,7 @@
         </div>
         <div class="PlaceOrder">
             <button>Proceed to confirmation</button>
-        </div> -->
+        </div>
         <!-- This is the confirmation -->
         <!-- <div class="Confirmation">
             <h1>Order confirmation</h1>
@@ -48,7 +48,7 @@
         </select>
         <button>Place Order</button>
         </div> -->
-        <div class="OrderStatus">
+        <!-- <div class="OrderStatus">
             <div class="Header">
             <img src="@/assets/ProductPic.jpg" alt="">
             <p>CherryNina giftshop</p>
@@ -59,7 +59,7 @@
                 We will notify you once your order is accepted by
                 the seller
             </h3>
-        </div>
+        </div> -->
     </div>
     </div>
 </template>
