@@ -42,6 +42,7 @@
       </div>
       <hr>
       <button @click="AddToCart">Add to Cart</button>
+      <button v-if="Added" @click="Proceed">Proceed to Checkout</button>
       <hr>
       <div>About the seller:</div>
       <div>{{SellerData.AboutSeller}}</div>
@@ -78,6 +79,7 @@ export default {
       SellerData: "",
       ReviewsData:[],
       UserID:"",
+      Added:false,
       OptionSelection:[],
       UserOptionSelection:[]
     };
@@ -87,9 +89,74 @@ export default {
       {
         //TODO Like Counter Function
       },
-      AddToCart()
+      Proceed()
       {
-        
+        this.$router.push('/Cart')
+      },
+      async AddToCart2()
+      {
+        //get UserID
+        const auth = firebase.auth()
+        let self = this
+        await auth.onAuthStateChanged((user) => {
+          if(user)
+          {
+            self.UserID = user.uid
+          }
+          else
+          {
+            console.log("No User in here")
+          }
+        })
+      },
+      async AddToCart()
+      {
+        //Get Option Customization Data
+        this.ComputeOptions()
+        //Get User ID
+        const auth = firebase.auth()
+        let self = this
+        await auth.onAuthStateChanged((user) => {
+          if(user)
+          {
+             self.UserID = user.uid
+          }
+          else
+          {
+            console.log("No User in here")
+          }
+        })
+        var db = firebase.firestore()
+        var DbRef = db.collection("Users")
+        var ProductObject = {
+          ProductID: this.ProductData.ProductID,
+          Customization: this.UserOptionSelection
+        }
+        //Check for repeated Products in the Cart
+        var CartIDs = []
+        await DbRef.doc(this.UserID).get().then((query) => {
+          CartIDs = query.data().CartProductID
+        })
+        var NewProduct = true
+        CartIDs.forEach((cart) =>{
+          if(cart.ProductID == this.ProductData.ProductID)
+          {
+            NewProduct = false
+          }
+        })
+        if(NewProduct)
+        {
+          await DbRef.doc(this.UserID).update({
+            CartProductID: firebase.firestore.FieldValue.arrayUnion(ProductObject)
+          });
+        alert("Added to Cart")
+        }
+        else
+        {
+          alert("Product already added to cart go to Cart to freely edit your cart list")
+        }
+        this.Added = true
+        //TODO Add a Cart side Counter
       },
       TextSeller()
       {
@@ -115,7 +182,7 @@ export default {
         this.$router.push({path:`/SellerStore`, query:{SellerID: SellerID} })
         // this.$router.push('/SellerStore')
       },
-      Test()
+      ComputeOptions()
       {
         var length = this.OptionSelection.length
         console.log("the length of the option array is: "+ length)

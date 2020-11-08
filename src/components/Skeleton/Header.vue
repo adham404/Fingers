@@ -15,7 +15,7 @@
         </div>
         <div class="icons">
           <!-- each icon when clicked is going to redirect the use to the page related with this icon -->
-          <img src="@/assets/HeaderAssets/cart.svg" alt="cart" id="icon">
+          <img @click="ToCart" src="@/assets/HeaderAssets/cart.svg" alt="cart" id="icon">
           <img src="@/assets/HeaderAssets/heart.svg" alt="heart" id="icon">
           <img src="@/assets/HeaderAssets/compare.svg" alt="compare" id="icon">
           <!-- <img src="@/assets/HeaderAssets/account.svg" alt="account" id="icon"> -->
@@ -68,6 +68,10 @@ export default {
     Login()
     {
       this.$router.push('/Login')
+    },
+    ToCart()
+    {
+      this.$router.push('/Cart')
     },
     SignOut()
     {

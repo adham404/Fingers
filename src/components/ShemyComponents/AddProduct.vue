@@ -144,7 +144,8 @@ export default {
           NumberOfFavs:0,
           Price: this.ProductPrice,
           ProductID: ProductID,
-          SellerID: SellerID
+          SellerID: SellerID,
+          url2: 'BlueBracelet.jpg'
         }
         DBref.doc(ProductID).set(ProductObject);
         console.log(ProductObject);
