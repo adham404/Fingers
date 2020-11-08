@@ -57,7 +57,7 @@
       },
       GoShop()
       {
-        this.$router.push('/SellerDashboard')
+        this.$router.push('/Shop')
       },
       Cart()
       {

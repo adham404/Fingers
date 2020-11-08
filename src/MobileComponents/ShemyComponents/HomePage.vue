@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="Intro">
-            <h3>Welcome to fingers. A place where you can</h3>
+            <h3>Welcome to fingers {{UserStatus}}. A place where you can</h3>
             <div class="Buttons">
                 <button @click="Buy">Buy</button>
                 <button @click="Sell">Sell</button>
@@ -39,8 +39,10 @@
         </div> -->
         <div class="MailList">
             <p id="MailList">Subscribe to our mail list to get notified with your personalized products</p>
-            <input type="text" class="Shadow">
-            <button>Submit</button>
+            <input v-model="Email" type="text" class="Shadow">
+            <button @click="Subscribe">Submit</button>
+            <p v-if="Validmail">Please Enter a valid E-mail</p>
+            <p v-if="maildone">Email added successfully thanks for Subscription</p>
         </div>
     </div>
 </template> 

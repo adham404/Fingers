@@ -3,13 +3,13 @@
         <div class="Form">
             <label for="Email">Email</label>
             <br>
-            <input type="email" name="email" id="email">
+            <input v-model="Email" type="email" name="email" id="email">
             <br>
             <label for="password">Password</label>
             <br>
-            <input type="password" name="password" id="password">
+            <input v-model="pass" type="password" name="password" id="password">
             <br>
-            <button>Login</button>
+            <button @click="Login">Login</button>
         </div>
         
 
@@ -17,9 +17,27 @@
 </template>
 
 <script>
-    export default {
-        
+import firebase from "firebase"
+export default {
+  data:function()
+  {
+    return{
+      Email:"",
+      pass:""
     }
+  },
+  methods:{
+    async Login()
+    {
+      const auth = firebase.auth()
+      await auth.signInWithEmailAndPassword(this.Email,this.pass).catch((error) => {
+        console.log(error.message);
+      })
+      alert("Login Successfully")
+      this.$router.push('/')
+    }
+  }
+}
 </script>
 
 <style scoped>
