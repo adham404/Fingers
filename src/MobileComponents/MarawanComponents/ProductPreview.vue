@@ -1,9 +1,12 @@
 <template>
     <div class="Container">
+       
         <div class="ShopHeader">
+            
             <img src="@/assets/ProductPic.jpg" alt="">
             <h3>CherryNina Giftshop</h3>
         </div>
+         <h2>Wooden Wedding book</h2>
         <div class="ProductPreview">
             <img src="@/assets/ProductPic.jpg" alt="" class="Product Shadow">
         </div>
@@ -13,6 +16,12 @@
                 I am typing very fast like a crazy man and that is wicked
             </p>
 
+        </div>
+        <div class="Price">
+            <h4>Egp 25.00</h4>
+            <svg xmlns="http://www.w3.org/2000/svg" width="19.827" height="18.734" viewBox="0 0 19.827 18.734">
+            <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M15.671,3.938h-.04a4.661,4.661,0,0,0-3.843,2,4.661,4.661,0,0,0-3.843-2h-.04a4.467,4.467,0,0,0-4.53,4.355,9.1,9.1,0,0,0,1.933,5.114,33.291,33.291,0,0,0,6.48,5.946,33.291,33.291,0,0,0,6.48-5.946A9.1,9.1,0,0,0,20.2,8.292,4.467,4.467,0,0,0,15.671,3.938Z" transform="translate(-1.875 -2.438)" fill="#fff" stroke="#000" stroke-width="3"/>
+            </svg>
         </div>
         <br>
         <label for="">..Title of Cust..:</label>
@@ -40,6 +49,18 @@
 </script>
 
 <style scoped>
+.Price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.Price h4{
+    border: none;
+}
+h2{
+    margin: 5px;
+}
 label{
     align-self: center;
     font-weight: bold;

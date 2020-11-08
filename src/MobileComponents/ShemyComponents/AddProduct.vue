@@ -51,6 +51,7 @@
         <option value="7:00 pm">Collectibles</option>
         </select>
         </div>
+        <button id="Done">Done</button>
         
 
     </div>
@@ -63,6 +64,19 @@
 </script>
 
 <style scoped>
+#Done{
+    background-color: #AAE2DF;
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
 h4{
     margin: 8px;
 }
@@ -89,6 +103,8 @@ select{
     width: 250px;
     height: 35px;
     border: none;
+    background-color: white;
+    border-radius: 5px;
 
 }
 #AddCustomisation{
