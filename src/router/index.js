@@ -32,6 +32,8 @@ import ThreeStepsDesktop from '@/DesktopComponents/ShemyComponents/ThreeSteps.vu
 import ThreeStepsMobile from '@/MobileComponents/ShemyComponents/ThreeSteps.vue'
 import MoreDesktop from '@/DesktopComponents/ShemyComponents/More.vue'
 import MoreMobile from '@/MobileComponents/ShemyComponents/More.vue'
+import FavouritesDesktop from '@/DesktopComponents/ShemyComponents/Favourites.vue'
+import FavouritesMobile from '@/MobileComponents/ShemyComponents/Favourites.vue'
 
 
 Vue.use(VueRouter)
@@ -171,6 +173,14 @@ Vue.use(VueRouter)
         components: {
           Desktop: MoreDesktop,
           Mobile: MoreMobile
+        }
+      },
+      {
+        path: '/Favourites',
+        name: 'Favourites',
+        components: {
+          Desktop: FavouritesDesktop,
+          Mobile: FavouritesMobile
         }
       }
 

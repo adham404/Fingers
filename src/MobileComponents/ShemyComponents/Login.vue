@@ -1,9 +1,11 @@
 <template>
     <div class="Container">
         <div class="Form">
+            <h1>Login</h1>
+            <h4>Don't have and account? <p>Sign Up.</p> </h4>
             <label for="Email">Email</label>
             <br>
-            <input v-model="Email" type="email" name="email" id="email">
+            <input v-model="Email" type="text" name="" id="Email">
             <br>
             <label for="password">Password</label>
             <br>
@@ -41,6 +43,13 @@ export default {
 </script>
 
 <style scoped>
+h4{
+    margin: 2px;
+    
+}
+p{
+    margin: 2px;
+}
 
 label{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

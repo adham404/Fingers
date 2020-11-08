@@ -62,7 +62,7 @@
         </div>
         <br>
         <br>
-        <button @click="Done">Done</button>
+        <button id="Done" @click="Done">Done</button>
         <button @click="MyProducts">My Products list</button>
         <br>
         </div>
@@ -180,7 +180,20 @@ export default {
 </script>
 
 <style scoped>
-#heb{
+#Done{
+    background-color: #AAE2DF;
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+h4{
     margin: 8px;
 }
 .CustomisationForm{
@@ -206,6 +219,8 @@ select{
     width: 250px;
     height: 35px;
     border: none;
+    background-color: white;
+    border-radius: 5px;
 
 }
 #AddCustomisation{

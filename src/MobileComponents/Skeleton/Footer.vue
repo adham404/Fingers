@@ -21,7 +21,7 @@
         <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M22.982,3.938h-.064a7.432,7.432,0,0,0-6.127,3.2,7.432,7.432,0,0,0-6.127-3.2H10.6a7.122,7.122,0,0,0-7.223,6.943,14.513,14.513,0,0,0,3.083,8.154c3.883,5.057,10.332,9.481,10.332,9.481s6.45-4.424,10.332-9.481a14.513,14.513,0,0,0,3.083-8.154A7.122,7.122,0,0,0,22.982,3.938Z" transform="translate(-1.875 -2.438)" stroke="#000" stroke-width="3"/>
       </svg>
       <h4>
-        Heart
+        Favourites
       </h4>
     </div>
     <div @click="Cart" class="Link">
@@ -32,7 +32,7 @@
         Cart
       </h4>
     </div>
-    <div class="Link">
+    <div @click="MoreMenu" class="Link">
       <svg xmlns="http://www.w3.org/2000/svg" width="34.137" height="6" viewBox="0 0 34.137 6">
         <g id="Icon_feather-more-horizontal" data-name="Icon feather-more-horizontal" transform="translate(-4.5 -15)">
           <path id="Path_41" data-name="Path 41" d="M19.5,18A1.5,1.5,0,1,1,18,16.5,1.5,1.5,0,0,1,19.5,18Z" transform="translate(3.568)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
@@ -54,6 +54,10 @@
       GoHome()
       {
         this.$router.push('/')
+      },
+      MoreMenu()
+      {
+        this.$router.push('/Menu')
       },
       GoShop()
       {

@@ -201,8 +201,8 @@ export default {
       {
         this.$router.push("/SellerDashboard");
       }
-      else{        
-        this.$router.push("/SellerRegistration");
+      else{  
+        this.$router.push("/ThreeStepRegistration");
       }
     },
     Blog() {
