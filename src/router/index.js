@@ -28,7 +28,10 @@ import TextSellerDesktop from '@/DesktopComponents/ShemyComponents/TextSeller.vu
 import TextSellerMobile from '@/MobileComponents/ShemyComponents/TextSeller.vue'
 import ChatListDesktop from '@/DesktopComponents/ShemyComponents/ChatList.vue'
 import ChatListMobile from '@/MobileComponents/ShemyComponents/ChatList.vue'
-
+import ThreeStepsDesktop from '@/DesktopComponents/ShemyComponents/ThreeSteps.vue'
+import ThreeStepsMobile from '@/MobileComponents/ShemyComponents/ThreeSteps.vue'
+import MoreDesktop from '@/DesktopComponents/ShemyComponents/More.vue'
+import MoreMobile from '@/MobileComponents/ShemyComponents/More.vue'
 
 
 Vue.use(VueRouter)
@@ -152,6 +155,22 @@ Vue.use(VueRouter)
         components: {
           Desktop: ChatListDesktop,
           Mobile: ChatListMobile
+        }
+      },
+      {
+        path: '/ThreeStepRegistration',
+        name: 'ThreeStepRegistration',
+        components: {
+          Desktop: ThreeStepsDesktop,
+          Mobile: ThreeStepsMobile
+        }
+      },
+      {
+        path: '/Menu',
+        name: 'Menu',
+        components: {
+          Desktop: MoreDesktop,
+          Mobile: MoreMobile
         }
       }
 
