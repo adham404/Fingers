@@ -1,8 +1,6 @@
 <template>
-    <div class="Container">
-       
+    <div class="Container">       
         <div class="ShopHeader">
-            
             <img src="@/assets/ProductPic.jpg" alt="">
             <h3>CherryNina Giftshop</h3>
         </div>
@@ -15,7 +13,6 @@
             <p>This product should be really amazing but something wrong has happend and I don't understand what it is
                 I am typing very fast like a crazy man and that is wicked
             </p>
-
         </div>
         <div class="Price">
             <h4>Egp 25.00</h4>

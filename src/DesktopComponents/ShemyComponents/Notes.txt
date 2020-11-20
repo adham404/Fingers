@@ -1,0 +1,20 @@
+styling of :
+Container2
+Shop
+Grid
+button
+id: Pink
+
+
+Profile:
+
+Chat list
+Seller dashboard
+favourites
+Cart
+Orders
+
+style:
+ChatInfo
+h4
+p
