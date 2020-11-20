@@ -1,35 +1,109 @@
 <template>
     <div class="Horizontal scroll">
         <h1>Become a fingers seller in 3 steps</h1>
-        <div class="Container Shadow">
+        <div v-if="!UserIn" class="Container Shadow">
             <h2>1 Register an account on fingers</h2>
             <Login/>
             <SignUp/>
         
         </div>
-        <div class="Container Shadow">
+        <div v-if="Step1&&!Step2Dn" class="Container Shadow">
             <h2>2 Fill out your fingers shop profile</h2>
             <SellerRegistration/>
         </div>
-        <div class="Container Shadow">
+        <div v-else>
+            <div v-if="!Step2Dn">
+            Waiting for First Step
+        </div>
+        </div>        
+        <div v-if="Step1&&Step2" class="Container Shadow">
             <h2>3 Start adding your products</h2>
             <p>Congratulation! You are now a shop owner on fingers you can start adding products for people so they can see your creativity.</p>
-            <button>Start adding products</button>
+            <button @click="AddProduct">Start adding products</button>
         </div>
     </div>
 </template>
 
 <script>
-import SignUp from '@/MobileComponents/ShemyComponents/SignUp'
-import Login from '@/MobileComponents/ShemyComponents/Login'
-import SellerRegistration from '@/MobileComponents/MarawanComponents/SellerRegistration'
-    export default {
-        components:{
-            SignUp,
-            Login,
-            SellerRegistration
-        }
+import firebase from "firebase";
+import {EventBus} from "../../main"
+import SignUp from "../ShemyComponents/SignUp";
+import Login from "../ShemyComponents/Login"
+import SellerRegistration from "../MarawanComponents/SellerRegistration"
+export default {
+  data: function () {
+    return {
+      UserIn: false,
+      AboutSeller: "",
+      Address: "",
+      Step2Dn: false,
+      MNumber: "",
+      Step1: false,
+      Step2: false,
+      UserID:"",
+      ShopName:"",
+      InstagramPage:"",
+      FacebookPage:""
+    };
+  },
+  methods: {
+    AddFile() {
+      //TODO Upload Media to Backblaze
+    },
+    AddProduct()
+    {
+      this.$router.push('/AddProduct')
+    },
+    CreateShop()
+    {
+      //Check for Shop details
+      if(this.AboutSeller == "" || this.Address == "" || this.MNumber == "" || this.ShopName == "")
+      {
+        alert("Please fill in the Shop details")
+      }
+      else{
+        //Check for Validation for Shop details like phone number like location give me location
+        var db = firebase.firestore()
+        var DBref = db.collection("Users")
+        DBref.doc(this.UserID).update({
+            AboutSeller: this.AboutSeller,
+            Address: this.Address,
+            MobileNumber: this.MNumber,
+            FaceBookLink: this.FacebookPage,
+            InstagramLink: this.InstagramPage,
+            ShopName: this.ShopName,
+            Seller: true
+        })
+        alert("You Have Created a Fingers Shop successfully");
+        this.Step2 = true;
+        this.Step2Dn = true;
+      }
+
     }
+  },
+  components: {
+    SignUp,
+    Login,
+    SellerRegistration
+  },
+  async mounted() {
+    const auth = firebase.auth();
+    let self = this
+    await auth.onAuthStateChanged((user) => {
+      if (user) {
+        self.UserID = user.uid
+        this.UserIn = true;
+        this.Step1 = true;
+      } else {
+        this.UserIn = false;
+      }
+    });
+    //Check for Step 1 and 2 
+    EventBus.$on("SignUpDone", ()=>{
+      this.Step1 = true;
+    })
+  },
+};
 </script>
 
 <style  scoped>

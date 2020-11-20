@@ -1,15 +1,70 @@
 <template>
     <div>
         <h1>Welcome, Username</h1>
-        <h2>Chat List</h2>
-        <h2>Orders</h2>
-        <h2>Seller Dashboard</h2>
-        <button>Sign Out</button>
+        <h2 @click="ToChat">Chat List</h2>
+        <h2 @click="Order">Orders</h2>
+        <h2 v-if="UserIn" @click="Dashboard">Seller Dashboard</h2>
+        <h2 v-if="!UserIn" @click="SignUp">Sign UP</h2>
+        <h2 v-if="!UserIn" @click="Login">Login</h2>
+        <button v-if="UserIn" @click="SignOut">Sign Out</button>
     </div>
 </template>
 
 <script>
+import firebase from "firebase"
     export default {
+    data:function()
+    {
+        return{
+            UserID:"",
+            UserIn: false
+        }
+    },
+    async mounted()
+    {
+        const auth = firebase.auth()
+        let self = this
+        await auth.onAuthStateChanged((user) => {
+            if(user)
+            {
+                self.UserID = user.uid
+                self.UserIn = true
+            }
+            else
+            {
+                console.log("No User Racism")
+            }
+        })
+    },
+    methods:{
+        ToChat()
+        {
+            this.$router.push('/ChatList')
+        },
+        Order()
+        {
+            this.$router.push('/ShopOrders')
+        },
+        Dashboard()
+        {
+            this.$router.push('/SellerDashboard')
+        },
+        SignUp()
+        {
+            this.$router.push('/SignUp')   
+        },
+        Login()
+        {
+            this.$router.push('/Login')
+        },
+        SignOut()
+        {
+        const auth = firebase.auth()
+        auth.signOut();
+        alert("Signed out!")
+        this.UserIn = false
+        }
+    }
         
     }
 </script>
